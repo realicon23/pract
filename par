@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  
+    
+</head>
+<body>
+    <select onchange="currencySelected()" id ="rigthSide" >
+        <option value = "dollar" >Dollar</option><!--1$  = 360N-->
+        <option value = "euro" >Euro</option><!--IEuro =420N-->
+        <option value="naira">Naira</option>
+    </select>
+<input onkeyup="convert()" placeholder="enter the Naira currncy you wish to convert" id= "currency"/>
+<label>Convert to:</label>
+<select onchange="currencySelected()"  id ="myCurrency">
+    <option value = "dollar" >Dollar</option><!--1$  = 360N-->
+    <option value = "euro" >Euro</option><!--IEuro =420N-->
+    <option value="naira">Naira</option>
+</select>
+<script>
+     
+    let multiplier = 0;
+    let result = 0;
+    const currencyInitial = ["naira_dollar", "naira_euro", "naira_naira","euro_dollar","euro_naira","euro_euro","dollar_euro","dollar_naira","dollar_dollar"];
+    const theArray = [1/320, 1/420, 1, 1.12, 420, 1, 0.90, 320, 1];
+   const currencyInput = document.querySelector("#myCurrency");
+   const currencyselector = document.querySelector("#currency");
+   const rigthSide = document.querySelector("#rightSide");
+   const add = currencyselector + rigthSide; 
+     function convert(add)
+   const currencySelected=()=>{
+    for (let j=0; j<theArray.length; j++) {
+       if (currencyInitial[j]=="naira_dollar"){
+           multiplier=theArray[j];
+   }
+   
+    
+       
+       
+ 
+}
+ 
+   
+   } 
+  
+   </script>
+</body>
+</html>
