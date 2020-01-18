@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+
+</head>
+
+<body>
+
+  <input type="number" onkeyup="convert()" placeholder="enter the Naira currncy you wish to convert"
+    id="currencyInput" />
+
+  <select onchange="convert()" id="myCurrency">
+    <option value="dollar">Dollar</option>
+    <!--1$  = 360N-->
+    <option value="euro">Euro</option>
+    <!--IEuro =420N-->
+    <option value="naira">Naira</option>
+  </select>
+
+  <br> <br>
+
+  <label>Convert to: </label>
+  <select onchange="convert()" id="conversionCurrency">
+    <option value="dollar">Dollar</option>
+    <!--1$  = 360N-->
+    <option value="euro">Euro</option>
+    <!--IEuro =420N-->
+    <option value="naira">Naira</option>
+  </select>
+
+  <br> <br>
+
+  <h3 id="convertedCurrency"></h3>
+
+  <script>
+    let multiplier, rate, result = 1;
+
+    const currencyInput = document.querySelector("#currencyInput");
+    const myCurrency = document.querySelector("#myCurrency");
+    const conversionCurrency = document.querySelector("#conversionCurrency");
+    const convertedCurrency = document.querySelector('#convertedCurrency');
+
+    const conversionChecker = ["naira_dollar", "naira_euro", "naira_naira", "euro_dollar", "euro_naira", "euro_euro",
+      "dollar_euro", "dollar_naira", "dollar_dollar"
+    ];
+    const conversionRate = [0.0026315789, 0.0023809524, 1, 1.12, 420, 1, 0.9009009009, 380, 1];
+
+    function convert() {
+      multiplier = myCurrency.value + '_' + conversionCurrency.value;
+
+      if (conversionChecker.indexOf(multiplier) !== -1) {
+        rate = conversionRate[conversionChecker.indexOf(multiplier)];
+        result = rate * currencyInput.value;
+
+        convertedCurrency.innerHTML = (result ? result : 0) + ' ' + conversionCurrency.value;
+      } else {
+        convertedCurrency.innerHTML = 'Cannot be converted, we do not have that rate. Please check back later';
+      }
+
+    }
+  </script>
+</body>
+
+</html>
