@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        table,th,tr,td{
+            border:1px solid blue ;
+        }
+    </style>
+</head>
+<body>
+</body>
+<form action="form.html" >
+  <div id="container">
+    <h1>Register your details</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="Name"><b>Name</b></label>
+    <input type="text" placeholder="Enter Name" name="Name" required>
+
+    <label for="About" style= box-sizing:border-box><b>About</b></label>
+    <input type="text" placeholder="Type here" name="About" required>
+
+   
+    <button type="submit"  onclick="showInput" value = "submit">Submit</button>
+  </div>
+
+</form>
+<table class="myTable" style="width:100%">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>name</th> 
+                <th>About</th>
+        </thead>
+        <tbody id="data-content">
+            
+        </tbody>
+  </table>
+  <button onclick="fillTable()" >Fill table</button>
+
+    
+    <script> 
+       const tableData= document.querySelector('#data-content');
+      // let b=[3,3,3,3,3,];;
+      
+        let data = [
+            {
+                email:[],
+                name:[],
+                about:[]
+               
+            },
+            {
+                email:'',
+                name:'',
+                about:''
+            },
+            {
+                email:'',
+                name:'',
+                about:''
+            },
+            {
+                email:'',
+                name:'',
+                about:''
+            },
+            {
+                email:'',
+                name:'',
+                about:''
+            }
+        ]
+       
+       function fillTable(){
+        for(let i=0; i<data.length; i++){
+            tableData.innerHTML+=`
+            <tr>
+                <td>${data[i].email}</td> 
+                <td>${data[i].name}</td> 
+                <td>${data[i].about}</td>    
+            <tr>
+            
+            `
+        }
+        function submit(){
+            for(let i=name,email,about; i<data.length; i++){
+                tableData.fillTable= submit
+            }
+        }
+       }
+       
+    </script>
+
+    
+
+</html>
